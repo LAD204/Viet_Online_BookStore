@@ -1,0 +1,53 @@
+<?php
+    class csdl
+    {
+        private function connect(){
+            $con = mysqli_connect('localhost', 'usersachonline', 'sachonline123456');
+            if(!$con){
+                echo '<script>alert("Lấy thông tin thất bại");</script>';
+                exit();
+            }
+            else{
+                mysqli_select_db($con,'bookstore_db');
+                mysqli_query($con,'SET NAMES UTF8');
+                return $con;
+            }
+        }
+        public function add_user(string $user_name, string $password, string $sex, string $telephone, string $gmail){
+            $link = $this->connect();
+
+            $user_name = trim($user_name);
+            $password = trim($password);
+            $telephone = trim($telephone);
+            $gmail = trim($gmail);
+
+            $user_name = mysqli_real_escape_string($link, $user_name);
+            $password = mysqli_real_escape_string($link, $password);
+            $telephone = mysqli_real_escape_string($link, $telephone);
+            $gmail = mysqli_real_escape_string($link, $gmail);
+            $sex = mysqli_real_escape_string($link, $sex);
+            
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            if($hash === false || $hash === null){
+                return false;
+            }
+            $sql_check_user_exist = "SELECT * FROM user where name = '$user_name' or telephone = '$telephone' order by name asc";
+            
+            $kiemtra = mysqli_query($link, $sql_check_user_exist);
+            if(mysqli_num_rows($kiemtra)>0){
+                echo 'Tên user hoặc số điện thoại đã tồn tại';
+                exit();
+            }
+            else{
+                $sql_save_user = "INSERT INTO user(name, password, sex, telephone, gmail) VALUES ('$user_name', '$hash', '$sex', '$telephone', '$gmail')";
+                $save = mysqli_query($link, $sql_save_user);
+                if($save){
+                    return $save;
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+    }
+?>
