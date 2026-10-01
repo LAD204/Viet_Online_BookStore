@@ -23,9 +23,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
         $result = $p->mylogin($user,$pass);
         if($result == 1){
             if($_SESSION['role']==1){
-                header('location: dashboard.php');
+                header('location: ../admin/dashboard.php');
             }else{
-                header('location: trangchu.php');
+                header('location: ../trangchu/index.php');
             }
             exit();
         }else{
@@ -160,7 +160,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
           <li class="nav-item"><a class="nav-link nav-link-item" href="#">TIN TỨC</a></li>
           <li class="nav-item"><a class="nav-link nav-link-item" href="#">LIÊN HỆ</a></li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-             <a href="register.php" class="btn btn-outline-primary btn-sm px-3 rounded-pill fw-semibold">Đăng ký</a>
+             <a href="../dangky/signup.php" class="btn btn-outline-primary btn-sm px-3 rounded-pill fw-semibold">Đăng ký</a>
           </li>
         </ul>
       </div>
@@ -184,7 +184,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
             <form action="login.php" method="POST" autocomplete="on">
               <div class="mb-3">
                 <label for="user" class="form-label fw-semibold">Tên tài khoản</label>
-                <input type="text" class="form-control" id="user" name="user" placeholder="Ví dụ: hotro@bookstore.vn" required autofocus>
+                <input type="text" class="form-control" id="user" name="user" placeholder="Ví dụ: Nguyễn Văn A" required autofocus>
               </div>
 
               <div class="mb-3">
@@ -206,7 +206,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
               <button type="submit" name="btn_login" class="btn btn-submit w-100 mb-3">Đăng nhập</button>
 
               <div class="text-center text-muted small">
-                Bạn chưa có tài khoản? <a href="register.php" class="fw-semibold text-decoration-none">Đăng ký ngay</a>
+                Bạn chưa có tài khoản? <a href="../dangky/signup.php" class="fw-semibold text-decoration-none">Đăng ký ngay</a>
               </div>
             </form>
           </div>

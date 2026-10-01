@@ -168,7 +168,7 @@ $doanh_thu = $dash->sum_status('Đã hoàn thành');
       </div>
 
       <!-- Nút Đăng xuất -->
-      <a href="logout.php" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold">Đăng xuất</a>
+      <a href="../dangxuat/logout.php" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold">Đăng xuất</a>
     </div>
   </nav>
 

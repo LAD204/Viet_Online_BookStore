@@ -41,7 +41,7 @@ class login extends clsbook{
 
         // Nếu thông tin không khớp -> đá về login
         if ($num != 1) {
-            header('location: login.php');
+            header('location: ../dangnhap/login.php');
             exit();
         }
 
