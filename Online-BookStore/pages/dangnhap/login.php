@@ -1,16 +1,16 @@
 <?php
 // login.php
 session_start();
-include_once("clslogin.php");
+include_once("../../class/clslogin.php");
 $p = new login();
 
 $error = '';
 # Nếu đã đăng nhập từ trước
 if(isset($_SESSION['id']) && isset($_SESSION['role'])){
     if($_SESSION['role'] == 1){
-        header('location: dashboard.php');
+        header('location: ../admin/dashboard.php');
     }else{
-        header('location: trangchu.php');
+        header('location: ../trangchu/index.php');
     }
     exit();
 }
@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
   <title>Đăng Nhập - BookStore</title>
 
   <!-- 1. Nhúng Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="../../layout/css/bootstrap.min.css">
 
   <style>
     :root {
@@ -144,7 +144,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
         <!-- Thay thế Logo mới -->
-        <img src="images/logo.jpg" alt="BookStore Logo" class="brand-logo">
+        <img src="../../images/logo.jpg" alt="BookStore Logo" class="brand-logo">
         <span class="brand-title fs-4 lh-1">BOOKSTORE</span>
       </a>
 
@@ -219,7 +219,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
     Bản quyền &copy; <?= date('Y') ?> BOOKSTORE.VN
   </footer>
 
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="../../layout/js/bootstrap.bundle.min.js"></script>
   <script>
     const toggleBtn = document.getElementById('togglePassword');
     const pwdInput = document.getElementById('password');

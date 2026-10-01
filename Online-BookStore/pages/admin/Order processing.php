@@ -1,11 +1,11 @@
 <?php
 session_start();
-include_once("clslogin.php");
-include_once("clsdonhang.php");
+include_once("../../class/clslogin.php");
+include_once("../../class/clsdonhang.php");
 
 // 1. Kiểm tra quyền Admin (role = 1)
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
-    header('location: login.php');
+    header('location: ../dangnhap/login.php');
     exit();
 }
 
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_update_status']))
   <title>Xử Lý Đơn Hàng - BookStore Admin</title>
 
   <!-- Bootstrap CSS cục bộ -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../layout/css/bootstrap.min.css"> 
 
   <style>
     :root {
@@ -153,12 +153,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_update_status']))
       <!-- Góc Trái: Logo hình ảnh và Tên Admin -->
       <div class="d-flex align-items-center gap-3">
         <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="dashboard.php">
-          <img src="images/logo.jpg" alt="BookStore Logo" class="brand-logo">
+          <img src="../../images/logo.jpg" alt="BookStore Logo" class="brand-logo">
           <span class="brand-title fs-4 lh-1">BOOKSTORE ADMIN</span>
         </a>
 
         <div class="user-badge d-none d-md-flex align-items-center gap-1">
-          <img src="images/logoadmin.png" alt="Adminlogo" class="admin-avatar">
+          <img src="../../images/logoadmin.png" alt="Adminlogo" class="admin-avatar">
           <span>Admin: <strong><?php echo $_SESSION['user'] ?? 'Admin' ?></strong></span> 
         </div>
       </div>
@@ -246,6 +246,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_update_status']))
     Bản quyền &copy; 2026 BOOKSTORE.VN
   </footer>
 
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="../../layout/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

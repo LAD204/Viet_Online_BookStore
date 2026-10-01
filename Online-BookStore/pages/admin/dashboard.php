@@ -1,12 +1,12 @@
 <?php 
 session_start();
-include_once("clslogin.php");
-include_once("clsdash.php");
+include_once("../../class/clslogin.php");
+include_once("../../class/clsdash.php");
 $dash = new dash();
 
 // 1. Kiểm tra quyền Admin
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
-    header('location: login.php');
+    header('location: ../dangnhap/login.php');
     exit();
 }
 
@@ -31,7 +31,7 @@ $doanh_thu = $dash->sum_status('Đã hoàn thành');
   <title>Thống Kê Đơn Hàng - BookStore Admin</title>
 
   <!-- Bootstrap CSS cục bộ -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="../../layout/css/bootstrap.min.css">
 
   <style>
     :root {
@@ -149,12 +149,12 @@ $doanh_thu = $dash->sum_status('Đã hoàn thành');
       <!-- Góc Trái: Logo hình ảnh mới + Tên Admin -->
       <div class="d-flex align-items-center gap-3">
         <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="dashboard.php">
-          <img src="images/logo.jpg" alt="BookStore Logo" class="brand-logo">
+          <img src="../../images/logo.jpg" alt="BookStore Logo" class="brand-logo">
           <span class="brand-title fs-4 lh-1">BOOKSTORE ADMIN</span>
         </a>
 
         <div class="user-badge d-none d-md-flex align-items-center gap-1">
-          <img src="images/logoadmin.png" alt="Adminlogo" class="admin-avatar">
+          <img src="../../images/logoadmin.png" alt="Adminlogo" class="admin-avatar">
           <span>Admin: <strong><?php echo $_SESSION['user'] ?? 'ADMIN' ;?></strong></span>
         </div>
       </div>
@@ -262,9 +262,9 @@ $doanh_thu = $dash->sum_status('Đã hoàn thành');
     Bản quyền &copy; 2026 BOOKSTORE.VN
   </footer>
 
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <!-- Nhúng file Chart.js cục bộ -->
-  <script src="js/chart.js"></script>
+  <script src="../../layout/js/bootstrap.bundle.min.js"></script>
+  <!-- Nhúng file Char.js -->
+  <script src="../../layout/js/chart.js"></script>
 
   <script>
     const ctx = document.getElementById('orderStatusChart').getContext('2d');
