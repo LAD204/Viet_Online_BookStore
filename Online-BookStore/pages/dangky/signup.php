@@ -25,7 +25,7 @@
 
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="#">SÁCH MỚI</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../index.php">SÁCH MỚI</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">KHÓA HỌC</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">TIN TỨC</a></li>
@@ -38,7 +38,7 @@
             </div>
         </nav>
     </header>
-
+    
     <div class="container">
         <div class="register-container">
             <h3 class="register-title">Tạo Tài Khoản <span>SÁCH VIỆT</span></h3>

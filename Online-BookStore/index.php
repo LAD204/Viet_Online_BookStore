@@ -1,3 +1,6 @@
+<?php
+   include('class/clsconnect.php'); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,33 +8,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="layout/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="layout/css/index-style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.jpg" alt="">
-                    SÁCH VIỆT
-                </a>
+<header>
+    <nav class="navbar navbar-expand">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="javascript:location.reload();">
+                <img src="images/logo.jpg" alt="">
+                SÁCH VIỆT
+            </a>
 
-                <div class="collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="#">SÁCH MỚI</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">KHÓA HỌC</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">TIN TỨC</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">LIÊN HỆ</a></li>
-                        <li class="nav-item ms-3">
-                            <a class="btn btn-outline-dark" href="../dangnhap/login.php">ĐĂNG NHẬP</a>
-                        </li>
+            <ul class="navbar-nav align-items-center ms-auto">
+
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="javascript:location.reload();">SÁCH MỚI</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">KHÓA HỌC</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">TIN TỨC</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">LIÊN HỆ</a></li>
+
+                <li class="nav-item dropdown d-lg-none">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MENU</a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="javascript:location.reload();">SÁCH MỚI</a></li>
+                        <li><a class="dropdown-item" href="#">KHÓA HỌC</a></li>
+                        <li><a class="dropdown-item" href="#">GIỚI THIỆU</a></li>
+                        <li><a class="dropdown-item" href="#">TIN TỨC</a></li>
+                        <li><a class="dropdown-item" href="#">LIÊN HỆ</a></li>
+                        <li class="d-md-none"><hr class="dropdown-divider"></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="pages/dangnhap/login.php">ĐĂNG NHẬP</a></li>
                     </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+                </li>
+
+                <li class="nav-item ms-3 d-none d-md-block">
+                    <a class="btn btn-outline-dark" href="pages/dangnhap/login.php">ĐĂNG NHẬP</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="content">
+    <nav class="navbar navbar-expand navbar-dark bg-primary menu-chinh">
+        <div class="container-fluid">
+            <ul class="navbar-nav align-items-center w-100">
+
+                <li class="nav-item dropdown d-lg-none">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Mở menu">
+                        <span class="navbar-toggler-icon"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:location.reload();">Trang chủ</a></li>
+
+                        <li class="d-md-none"><hr class="dropdown-divider"></li>
+                        <li class="d-md-none"><h6 class="dropdown-header">Danh mục sách</h6></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="#">Lập trình &amp; IT</a></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="#">Kinh tế</a></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="#">Sách bán chạy</a></li>
+                        <li class="d-md-none"><hr class="dropdown-divider"></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="#">Giỏ hàng (0)</a></li>
+
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="pages/dangnhap/login.php">Đăng nhập</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item d-none d-lg-block">
+                    <a class="nav-link active" aria-current="page" href="javascript:location.reload();">Trang chủ</a>
+                </li>
+
+                <li class="nav-item dropdown d-none d-md-block">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Danh mục sách
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Lập trình &amp; IT</a></li>
+                        <li><a class="dropdown-item" href="#">Kinh tế</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Sách bán chạy</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item flex-grow-1 mx-2">
+                    <form class="d-flex align-items-center gap-2 search-form" role="search" action="#" method="get">
+                        <input class="form-control" type="search" name="q" placeholder="Tìm kiếm...">
+                        <input type="submit" value="Tìm kiếm" style="padding:6px; background-color:white; border-radius: 5px;">
+                    </form>
+                </li>
+
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link active" href="#">Giỏ hàng (0)</a>
+                </li>
+
+                <li class="nav-item ms-2 d-none d-lg-block">
+                    <a class="btn btn-outline-light btn-dang-nhap" href="pages/dangnhap/login.php">
+                        <i class="bi bi-person"></i> Đăng nhập
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
     <footer class="footer">
     <div class="container-fluid px-5">
         <div class="row g-4">
