@@ -1,0 +1,135 @@
+.navbar-toggler {
+    border: 1px solid #ced4da;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    border-color: #1a568c;
+}
+
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .navbar-collapse {
+        padding-top: 10px;
+    }
+
+    .nav-link {
+        margin: 0;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-brand img {
+        width: 32px;
+        margin-right: 8px;
+    }
+}
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 15px 50px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #1a568c;
+    font-size: 1.5rem;
+}
+
+.navbar-brand img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+
+.btn-outline-dark {
+    border-radius: 20px;
+    font-weight: 600;
+    padding: 6px 20px;
+}
+
+
+.footer {
+    background-color: #0f3656;
+    color: #b9c4d0;
+    padding-top: 50px;
+}
+
+.footer-title {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.footer-link {
+    color: #b9c4d0;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: #5aa9f0;
+}
+
+.footer-icon {
+    color: #5aa9f0;
+}
+
+.footer-bct {
+    width: 150px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.footer-social {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border: 1px solid #b9c4d0;
+    border-radius: 20px;
+    color: #b9c4d0;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.footer-social:hover {
+    color: #5aa9f0;
+    border-color: #5aa9f0;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.9rem;
+}

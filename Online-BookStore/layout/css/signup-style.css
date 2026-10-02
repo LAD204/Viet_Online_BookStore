@@ -1,0 +1,123 @@
+body {
+    background-color: #f4f6f9; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 15px 50px;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #1a568c;
+    font-size: 1.5rem;
+}
+.navbar-brand img {
+    width: 40px;
+    margin-right: 10px;
+}
+.nav-link {
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+.btn-outline-dark {
+    border-radius: 20px;
+    font-weight: 600;
+    padding: 6px 20px;
+}
+
+.register-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.register-title {
+    text-align: center;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 30px;
+}
+.register-title span {
+    color: #1a568c;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+.form-control, .form-select {
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    border: 1px solid #ced4da;
+}
+.form-control:focus, .form-select:focus {
+    box-shadow: none;
+    border-color: #1a568c;
+}
+
+.password-container {
+    position: relative;
+}
+.password-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.btn-register {
+    background-color: #154c79;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 15px;
+}
+.btn-register:hover {
+    background-color: #0f3656;
+    color: white;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+.login-link a {
+    color: #1a568c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    font-size: 0.85rem;
+    color: #666;
+}
+.footer a {
+    color: #666;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
