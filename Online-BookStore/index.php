@@ -1,5 +1,7 @@
 <?php
+   session_start();
    include('class/clsconnect.php'); 
+   $p = new csdl();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,6 +110,23 @@
             </ul>
         </div>
     </nav>
+    <div class="body-content d-flex flex-wrap gap-4 justify-content-center">
+        <?php
+            $p->export_product('SELECT * FROM sanpham order by ten_sach asc');
+            if(isset($_POST['them'])){
+                switch($_POST['nut']){
+                    case'Thêm':{
+                        //Chỗ này cần bổ sung
+                        break;
+                    }
+                    case'Xem chi tiết':{
+                        // Chỗ này cần bổ sung
+                        break;
+                    }
+                }
+            }
+        ?>
+    </div>
 </div>
     <footer class="footer">
     <div class="container-fluid px-5">

@@ -49,5 +49,41 @@
                 }
             }
         }
+        public function export_product(string $sql){
+            $link = $this->connect();
+            $result = mysqli_query($link, $sql);
+            if($result->num_rows > 0){
+                $i = 0;
+                while($row = mysqli_fetch_array($result)){
+                    echo'
+                        <div class="product-card">
+                            <form action="" method="post">
+                                <div class="card shadow-sm border-0" style="width: 100%; max-width: 250px;">
+                                    <div class="custom-images overflow-hidden rounded-top" style="aspect-ratio: 1/1;">
+                                        <img src="images/'.$row['hinh_anh'].'" alt="Ảnh sản phẩm" class="w-100 h-100 object-fit-cover">
+                                    </div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fs-6 fw-bold text-truncate" style="width: 230px; overflow-y: hidden;">'.$row['ten_sach'].'</h5>
+                                        
+                                        <p class="card-text text-danger fw-bold mb-3">'.$row['gia_ban'].' VNĐ</p>
+                                        <div class="mt-auto d-flex gap-2">
+                                            <input type="submit" class="btn btn-primary w-50" style="font-size: 14px;" value="Thêm">
+                                            <a href="chitiet.php?id='.$hash = password_hash($row['id'], PASSWORD_DEFAULT).'" class="btn btn-outline-secondary w-50" style="font-size: 14px; text-decoration: none; text-align: center; line-height: 2;">
+                                                Xem chi tiết
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    ';
+                    $i += 1;
+                }
+            }
+            else{
+                echo'<script>alert("Không tìm thấy dữ liệu nào");</script>';
+            }
+        }
     }
 ?>
