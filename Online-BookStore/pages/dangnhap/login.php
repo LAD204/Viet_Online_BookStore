@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
                         <li class="nav-item"><a class="nav-link" href="#">TIN TỨC</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">LIÊN HỆ</a></li>
                         <li class="nav-item ms-3">
-                            <a class="btn btn-outline-dark btn-sm px-3 rounded-pill fw-semibold" href="../dangky/signup.php">ĐĂNG KÝ</a>
+                            <a class="btn btn-outline-dark" href="../dangky/signup.php">ĐĂNG KÝ</a>
                         </li>
                     </ul>
                 </div>
@@ -114,9 +114,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
 
               <button type="submit" name="btn_login" class="btn btn-submit w-100 mb-3">Đăng nhập</button>
 
-              <div class="text-center text-muted small">
-                Bạn chưa có tài khoản? <a href="../dangky/signup.php" class="fw-semibold text-decoration-none">Đăng ký ngay</a>
-              </div>
+              <div class="login-link">
+                Bạn chưa có tài khoản? <a href="../dangky/signup.php">Đăng ký ngay</a>
+            </div>
             </form>
           </div>
         </div>
