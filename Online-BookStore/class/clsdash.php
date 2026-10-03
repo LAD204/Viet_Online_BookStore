@@ -23,7 +23,7 @@ class dash extends clsbook{
         }
     }
 
-    // 2. Tính tổng tiền / doanh thu theo trạng thái
+    // 2. Tính tổng tiền theo trạng thái
     public function sum_status($trang_thai = '') {
         $link = $this->connect();
         $where = "WHERE 1=1";

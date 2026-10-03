@@ -3,7 +3,7 @@ session_start();
 include_once("../../class/clslogin.php");
 include_once("../../class/clsdonhang.php");
 
-// 1. Kiểm tra quyền Admin (role = 1)
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
     header('location: ../dangnhap/login.php');
     exit();
@@ -11,7 +11,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
 
 $dh = new donhang();
 
-// 3. Lấy giá trị lọc từ Form (GET)
+
 $keyword = $_GET['keyword'] ?? '';
 $status_filter = $_GET['status'] ?? '';
 
@@ -41,108 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_update_status']))
 
   <!-- Bootstrap CSS cục bộ -->
   <link rel="stylesheet" href="../../layout/css/bootstrap.min.css"> 
-
-  <style>
-    :root {
-      --primary-color: #1e4276;
-      --primary-hover: #153056;
-      --accent-color: #2b589a;
-      --bg-color: #f6f8fa;
-      --card-border: #e1e4e8;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .admin-navbar {
-      background-color: #ffffff;
-      border-bottom: 1px solid var(--card-border);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .brand-title {
-      font-weight: 700;
-      color: var(--primary-color);
-      letter-spacing: 0.5px;
-    }
-
-    .brand-logo {
-      height: 36px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .nav-link-custom {
-      color: #555;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: all 0.2s;
-      font-size: 0.95rem;
-    }
-
-    .nav-link-custom:hover {
-      color: var(--primary-color);
-      background-color: rgba(30, 66, 118, 0.05);
-    }
-
-    .nav-link-custom.active {
-      color: #ffffff !important;
-      background-color: var(--primary-color) !important;
-    }
-
-    .user-badge {
-      background-color: rgba(30, 66, 118, 0.08);
-      color: var(--primary-color);
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 20px;
-      border: 1px solid rgba(30, 66, 118, 0.15);
-    }
-
-    .admin-card {
-      background: #ffffff;
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    }
-
-    .admin-avatar {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-    }
-
-    .btn-brand {
-      background-color: var(--primary-color);
-      color: #ffffff;
-      font-weight: 600;
-      border: none;
-    }
-
-    .btn-brand:hover {
-      background-color: var(--primary-hover);
-      color: #ffffff;
-    }
-
-    .form-control:focus, .form-select:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(30, 66, 118, 0.15);
-    }
-
-    .btn-action {
-      padding: 3px 10px;
-      font-size: 0.85rem;
-    }
-  </style>
+  <link rel="stylesheet" href="../../layout/css/Order-style.css"> 
+ 
 </head>
 <body>
 
@@ -152,10 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_update_status']))
       
       <!-- Góc Trái: Logo hình ảnh và Tên Admin -->
       <div class="d-flex align-items-center gap-3">
-        <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="dashboard.php">
-          <img src="../../images/logo.jpg" alt="BookStore Logo" class="brand-logo">
-          <span class="brand-title fs-4 lh-1">BOOKSTORE ADMIN</span>
-        </a>
+         <a class="navbar-brand" href="dashboard.php">
+          <img src="../../images/logo.jpg" alt="">
+          <span class="brand-title fs-4 lh-1">SÁCH VIỆT</span>      
+          </a>
 
         <div class="user-badge d-none d-md-flex align-items-center gap-1">
           <img src="../../images/logoadmin.png" alt="Adminlogo" class="admin-avatar">

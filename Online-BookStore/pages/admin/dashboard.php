@@ -17,7 +17,7 @@ $dang_giao     = $dash->count_order('Đang giao');
 $da_hoanthanh = $dash->count_order('Đã hoàn thành');
 $da_huy        = $dash->count_order('Đã hủy');
 
-// 3. Lấy doanh thu thực tế (chỉ tính đơn đã hoàn thành)
+// 3. Lấy doanh thu thực tế 
 $doanh_thu = $dash->sum_status('Đã hoàn thành');
 ?>
 
@@ -28,117 +28,11 @@ $doanh_thu = $dash->sum_status('Đã hoàn thành');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thống Kê Đơn Hàng - BookStore Admin</title>
+  <title>Thống Kê Đơn Hàng - SÁCH VIỆT Admin</title>
 
-  <!-- Bootstrap CSS cục bộ -->
 <link rel="stylesheet" href="../../layout/css/bootstrap.min.css">
-
-  <style>
-    :root {
-      --primary-color: #1e4276;
-      --primary-hover: #153056;
-      --accent-color: #2b589a;
-      --bg-color: #f6f8fa;
-      --card-border: #e1e4e8;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .admin-navbar {
-      background-color: #ffffff;
-      border-bottom: 1px solid var(--card-border);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .brand-title {
-      font-weight: 700;
-      color: var(--primary-color);
-      letter-spacing: 0.5px;
-    }
-
-    .brand-logo {
-      height: 36px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .nav-link-custom {
-      color: #555;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: all 0.2s;
-      font-size: 0.95rem;
-    }
-
-    .nav-link-custom:hover {
-      color: var(--primary-color);
-      background-color: rgba(30, 66, 118, 0.05);
-    }
-
-    .nav-link-custom.active {
-      color: #ffffff !important;
-      background-color: var(--primary-color) !important;
-    }
-
-    .stat-card {
-      background: #ffffff;
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 18px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-      transition: transform 0.2s;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .stat-title {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #6c757d;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .stat-number {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-top: 4px;
-    }
-
-    .admin-card {
-      background: #ffffff;
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    }
-
-    .admin-avatar {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-    }
-
-    .user-badge {
-      background-color: rgba(30, 66, 118, 0.08);
-      color: var(--primary-color);
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 20px;
-      border: 1px solid rgba(30, 66, 118, 0.15);
-    }
-  </style>
+<link rel="stylesheet" href="../../layout/css/dashboard-style.css">
+ 
 </head>
 <body>
 
@@ -148,10 +42,10 @@ $doanh_thu = $dash->sum_status('Đã hoàn thành');
       
       <!-- Góc Trái: Logo hình ảnh mới + Tên Admin -->
       <div class="d-flex align-items-center gap-3">
-        <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="dashboard.php">
-          <img src="../../images/logo.jpg" alt="BookStore Logo" class="brand-logo">
-          <span class="brand-title fs-4 lh-1">BOOKSTORE ADMIN</span>
-        </a>
+        <a class="navbar-brand" href="dashboard.php">
+          <img src="../../images/logo.jpg" alt="">
+          <span class="brand-title fs-4 lh-1">SÁCH VIỆT</span>      
+          </a>
 
         <div class="user-badge d-none d-md-flex align-items-center gap-1">
           <img src="../../images/logoadmin.png" alt="Adminlogo" class="admin-avatar">
