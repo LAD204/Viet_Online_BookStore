@@ -25,8 +25,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
             if($_SESSION['role']==1){
                 header('location: ../admin/dashboard.php');
             }else{
-                header('location: ../../index.php');
-            }
+              header('location: ../../index.php');
+             }
             exit();
         }else{
             $error = 'Tên tài khoản hoặc mật khẩu không chính xác!';
@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
  <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../../index.php">
                     <img src="../../images/logo.jpg" alt="">
                     SÁCH VIỆT
                 </a>

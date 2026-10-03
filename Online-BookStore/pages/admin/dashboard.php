@@ -42,7 +42,7 @@ $doanh_thu = $dash->sum_status('Đã hoàn thành');
       
       <!-- Góc Trái: Logo hình ảnh mới + Tên Admin -->
       <div class="d-flex align-items-center gap-3">
-        <a class="navbar-brand" href="#dashboard.php">
+        <a class="navbar-brand" href="dashboard.php">
           <img src="../../images/logo.jpg" alt="">
           <span class="brand-title fs-4 lh-1">SÁCH VIỆT</span>      
           </a>
