@@ -85,5 +85,17 @@
                 echo'<script>alert("Không tìm thấy dữ liệu nào");</script>';
             }
         }
+        public function search(string $ten_sach){
+            $ten_sach = trim($ten_sach);
+            
+            if($ten_sach != ''){
+                $sql = "SELECT * FROM sanpham WHERE ten_sach LIKE '%$ten_sach%' ORDER BY gia_ban ASC";
+                return $this->export_product($sql);
+            }
+            else {
+                $sql = "SELECT * FROM sanpham ORDER BY gia_ban ASC";
+                return $this->export_product($sql);
+            }
+        }
     }
 ?>
