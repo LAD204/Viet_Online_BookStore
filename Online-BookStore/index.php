@@ -117,9 +117,33 @@
             </ul>
         </div>
     </nav>
+    <div id="bannerTinTuc" class="carousel slide shadow-sm mb-4 rounded overflow-hidden" data-bs-ride="carousel" style="width:80%; margin: 0 auto;">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#bannerTinTuc" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#bannerTinTuc" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#bannerTinTuc" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <?php
+                $p->poster('SELECT * FROM poster')
+            ?>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#bannerTinTuc" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-75" aria-hidden="true"></span>
+            <span class="visually-hidden">Trang trước</span>
+        </button>
+        
+        <button class="carousel-control-next" type="button" data-bs-target="#bannerTinTuc" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-75" aria-hidden="true"></span>
+            <span class="visually-hidden">Trang sau</span>
+        </button>
+        
+    </div>
     <div class="body-content d-flex flex-wrap gap-4 justify-content-center">
         <?php
-             if(isset($_GET['tim']) && isset($_GET['search'])){
+            if(isset($_GET['tim']) && isset($_GET['search'])){
     
                 $ten_tim_kiem = $_GET['search'];
                 $p->search($ten_tim_kiem); 
