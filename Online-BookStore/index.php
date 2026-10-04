@@ -94,7 +94,7 @@
                 <li class="nav-item flex-grow-1 mx-2">
                     <form class="d-flex align-items-center gap-2 search-form" role="search" action="#" method="get">
                         <input class="form-control" type="search" name="search" placeholder="Tìm kiếm...">
-                        <input type="submit" value="Tìm kiếm" style="padding:6px; background-color:white; border-radius: 5px;">
+                        <input type="submit" value="Tìm kiếm" name="tim" style="padding:6px; background-color:white; border-radius: 5px;">
                     </form>
                 </li>
                 <li class="nav-item d-none d-md-block">
