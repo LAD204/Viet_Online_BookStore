@@ -68,8 +68,13 @@
                                         <p class="card-text text-danger fw-bold mb-3">'.$row['gia_ban'].' VNĐ</p>
                                         <div class="mt-auto d-flex gap-2">
                                             <input type="submit" class="btn btn-primary w-50" style="font-size: 14px;" value="Thêm">
-                                            <a href="chitiet.php?id='.$hash = password_hash($row['id'], PASSWORD_DEFAULT).'" class="btn btn-outline-secondary w-50" style="font-size: 14px; text-decoration: none; text-align: center; line-height: 2;">
-                                                Xem chi tiết
+                                            
+                                            <a href="pages/trangchu/chitietsanpham.php?id='.base64_encode($row['id']).'" 
+                                               class="btn btn-outline-secondary w-50" 
+                                               style="font-size:14px; text-decoration:none; text-align:center; line-height:2;">
+                                                 Xem chi tiết
+                                            </a>
+                                            
                                             </a>
                                         </div>
                                     </div>
@@ -95,19 +100,6 @@
             else {
                 $sql = "SELECT * FROM sanpham ORDER BY gia_ban ASC";
                 return $this->export_product($sql);
-            }
-        }
-        public function poster(string $sql){
-            $classactive = 'active';
-            $link = $this->connect();
-            $ketqua = mysqli_query($link, $sql);
-            while($row = mysqli_fetch_array($ketqua)){
-                echo '
-                    <div class="carousel-item '.$classactive.'">
-                        <img src="images/'.$row['hinh_anh'].'" class="d-block w-100 object-fit-cover" style="height: 350px;" >
-                    </div>              
-                ';
-                $classactive = '';
             }
         }
     }
