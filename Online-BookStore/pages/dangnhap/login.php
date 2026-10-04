@@ -5,7 +5,7 @@ include_once("../../class/clslogin.php");
 $p = new login();
 
 $error = '';
-# Nếu đã đăng nhập từ trước
+# Nếu đã đăng nhập dã có 
 if(isset($_SESSION['id']) && isset($_SESSION['role'])){
     if($_SESSION['role'] == 1){
         header('location: ../admin/dashboard.php');
