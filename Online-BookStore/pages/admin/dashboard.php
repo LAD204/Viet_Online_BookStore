@@ -10,7 +10,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
     exit();
 }
 
-// 2. Lấy dữ liệu KPI từ CSDL thông qua class dash
+// 2. Lấy dữ liệu KPI từ CSDL qua class 
 $tong_don      = $dash->count_order();
 $cho_xacnhan  = $dash->count_order('Chờ xác nhận');
 $dang_giao     = $dash->count_order('Đang giao');
