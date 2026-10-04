@@ -102,5 +102,19 @@
                 return $this->export_product($sql);
             }
         }
+        public function poster(string $sql){
+            $link = $this->connect();
+            $ketqua = mysqli_query($link, $sql);
+            $class_active = 'active'; 
+            
+            while($row = mysqli_fetch_array($ketqua)){
+                echo '
+                    <div class="carousel-item '.$class_active.'">
+                        <img src="images/'.$row['hinh_anh'].'" class="d-block w-100 object-fit-cover" style="height: 350px;" >
+                    </div>              
+                ';
+                $class_active = ''; 
+            }
+        }
     }
 ?>
