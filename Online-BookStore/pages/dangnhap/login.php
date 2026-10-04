@@ -77,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
     </header>
 
 
-  <main class="flex-grow-1 d-flex align-items-center py-5">
+    <main class="py-4">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">

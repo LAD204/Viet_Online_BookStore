@@ -7,9 +7,6 @@
  body {
      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
      background-color: var(--bg-color);
-     min-height: 100vh;
-     display: flex;
-     flex-direction: column;
      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
  }
 
