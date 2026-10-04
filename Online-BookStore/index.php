@@ -90,14 +90,13 @@
                         <li><a class="dropdown-item" href="#">Sách bán chạy</a></li>
                     </ul>
                 </li>
-
+                <!-- Tìm kiếm -->
                 <li class="nav-item flex-grow-1 mx-2">
                     <form class="d-flex align-items-center gap-2 search-form" role="search" action="#" method="get">
-                        <input class="form-control" type="search" name="q" placeholder="Tìm kiếm...">
+                        <input class="form-control" type="search" name="search" placeholder="Tìm kiếm...">
                         <input type="submit" value="Tìm kiếm" style="padding:6px; background-color:white; border-radius: 5px;">
                     </form>
                 </li>
-
                 <li class="nav-item d-none d-md-block">
                     <a class="nav-link active" href="pages/giohang/giohang.php">Giỏ hàng (<?php  ?>)</a>
                 </li>
