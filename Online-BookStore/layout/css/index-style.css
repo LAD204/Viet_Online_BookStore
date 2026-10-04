@@ -106,6 +106,42 @@
     padding: 6px 20px;
 }
 
+.body-content{
+    height: 800px;
+    margin: 0 auto;
+    width: 80%;
+    border: 1px solid rgb(123, 123, 123);
+    overflow-y: scroll;
+    display: flex;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+
+.product-card{
+    border: 1px solid black;
+    margin: 10px 10px 10px 10px;
+    width: 250px;
+    border-radius: 5px;
+    height: 350px;
+}
+
+.custom-button{
+    color: rgb(70, 70, 200);
+    background-color: #a5c5e8;
+    border: 3px solid rgb(70, 70, 200);
+    font-size: x-large;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.custom-images{
+    height: 205px;
+}
+
+.product-card:hover{
+    box-shadow: 5px 5px 5px 5;
+    transform: translateY(-8px);
+    box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.15);
+}
 
 .footer {
     background-color: #0f3656;

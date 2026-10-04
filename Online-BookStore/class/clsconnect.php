@@ -49,5 +49,72 @@
                 }
             }
         }
+        public function export_product(string $sql){
+            $link = $this->connect();
+            $result = mysqli_query($link, $sql);
+            if($result->num_rows > 0){
+                $i = 0;
+                while($row = mysqli_fetch_array($result)){
+                    echo'
+                        <div class="product-card">
+                            <form action="" method="post">
+                                <div class="card shadow-sm border-0" style="width: 100%; max-width: 250px;">
+                                    <div class="custom-images overflow-hidden rounded-top" style="aspect-ratio: 1/1;">
+                                        <img src="images/'.$row['hinh_anh'].'" alt="Ảnh sản phẩm" class="w-100 h-100 object-fit-cover">
+                                    </div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fs-6 fw-bold text-truncate" style="width: 230px; overflow-y: hidden;">'.$row['ten_sach'].'</h5>
+                                        
+                                        <p class="card-text text-danger fw-bold mb-3">'.$row['gia_ban'].' VNĐ</p>
+                                        <div class="mt-auto d-flex gap-2">
+                                            <input type="submit" class="btn btn-primary w-50" style="font-size: 14px;" value="Thêm">
+                                            
+                                            <a href="pages/trangchu/chitietsanpham.php?id='.base64_encode($row['id']).'" 
+                                               class="btn btn-outline-secondary w-50" 
+                                               style="font-size:14px; text-decoration:none; text-align:center; line-height:2;">
+                                                 Xem chi tiết
+                                            </a>
+                                            
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    ';
+                    $i += 1;
+                }
+            }
+            else{
+                echo'<script>alert("Không tìm thấy dữ liệu nào");</script>';
+            }
+        }
+        public function search(string $ten_sach){
+            $ten_sach = trim($ten_sach);
+            
+            if($ten_sach != ''){
+                $sql = "SELECT * FROM sanpham WHERE ten_sach LIKE '%$ten_sach%' ORDER BY gia_ban ASC";
+                return $this->export_product($sql);
+            }
+            else {
+                $sql = "SELECT * FROM sanpham ORDER BY gia_ban ASC";
+                return $this->export_product($sql);
+            }
+        }
+        public function poster(string $sql){
+            $link = $this->connect();
+            $ketqua = mysqli_query($link, $sql);
+            $class_active = 'active'; 
+            
+            while($row = mysqli_fetch_array($ketqua)){
+                echo '
+                    <div class="carousel-item '.$class_active.'">
+                        <img src="images/'.$row['hinh_anh'].'" class="d-block w-100 object-fit-cover" style="height: 350px;" >
+                    </div>              
+                ';
+                $class_active = ''; 
+            }
+        }
     }
 ?>
