@@ -19,19 +19,18 @@ class login extends clsbook{
         // Lấy mật khẩu đã băm từ database
         $hashed_password_db = $row['password'];
 
-        //  Kiểm tra mật khẩu nhập vào có khớp với mã băm không
-        if(password_verify($pass, $hashed_password_db)){    
-       // Khớp -> Đăng nhập thành công, khởi tạo Session
+        // Kiểm tra mật khẩu nhập vào có khớp với mã băm không
+        if(password_verify($pass, $hashed_password_db)){
+            
+            // Khớp -> Đăng nhập thành công, khởi tạo Session
             $_SESSION['id'] = $row['id'];
             $_SESSION['user'] = $row['name'];
             $_SESSION['role'] = (int)$row['role'];
             return 1;
         } else {
-
             return 0;
         }
     } else {
-
         return 0;
     }
 }
