@@ -68,8 +68,13 @@
                                         <p class="card-text text-danger fw-bold mb-3">'.$row['gia_ban'].' VNĐ</p>
                                         <div class="mt-auto d-flex gap-2">
                                             <input type="submit" class="btn btn-primary w-50" style="font-size: 14px;" value="Thêm">
-                                            <a href="chitiet.php?id='.$hash = password_hash($row['id'], PASSWORD_DEFAULT).'" class="btn btn-outline-secondary w-50" style="font-size: 14px; text-decoration: none; text-align: center; line-height: 2;">
-                                                Xem chi tiết
+                                            
+                                            <a href="pages/trangchu/chitietsanpham.php?id='.base64_encode($row['id']).'" 
+                                               class="btn btn-outline-secondary w-50" 
+                                               style="font-size:14px; text-decoration:none; text-align:center; line-height:2;">
+                                                 Xem chi tiết
+                                            </a>
+                                            
                                             </a>
                                         </div>
                                     </div>
@@ -83,18 +88,6 @@
             }
             else{
                 echo'<script>alert("Không tìm thấy dữ liệu nào");</script>';
-            }
-        }
-        public function search(string $ten_sach){
-            $ten_sach = trim($ten_sach);
-            
-            if($ten_sach != ''){
-                $sql = "SELECT * FROM sanpham WHERE ten_sach LIKE '%$ten_sach%' ORDER BY gia_ban ASC";
-                return $this->export_product($sql);
-            }
-            else {
-                $sql = "SELECT * FROM sanpham ORDER BY gia_ban ASC";
-                return $this->export_product($sql);
             }
         }
     }

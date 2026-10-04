@@ -2,14 +2,6 @@
    session_start();
    include('class/clsconnect.php'); 
    $p = new csdl();
-   if(isset($_SESSION['id']) && isset($_SESSION['role'])){
-        if($_SESSION['role'] == 1){
-            header('location: ../admin/dashboard.php');
-        }else{
-            header('location: ../../index.php');
-        }
-        exit();
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +23,7 @@
 
             <ul class="navbar-nav align-items-center ms-auto">
 
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="index.php">SÁCH MỚI</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="javascript:location.reload();">SÁCH MỚI</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">KHÓA HỌC</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">TIN TỨC</a></li>
@@ -40,7 +32,7 @@
                 <li class="nav-item dropdown d-lg-none">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MENU</a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="index.ph'">SÁCH MỚI</a></li>
+                        <li><a class="dropdown-item" href="javascript:location.reload();">SÁCH MỚI</a></li>
                         <li><a class="dropdown-item" href="#">KHÓA HỌC</a></li>
                         <li><a class="dropdown-item" href="#">GIỚI THIỆU</a></li>
                         <li><a class="dropdown-item" href="#">TIN TỨC</a></li>
@@ -101,16 +93,17 @@
 
                 <li class="nav-item flex-grow-1 mx-2">
                     <form class="d-flex align-items-center gap-2 search-form" role="search" action="#" method="get">
-                        <input class="form-control" type="search" name="search" placeholder="Tìm kiếm...">
-                        <input type="submit" value="Tìm kiếm" name="tim" style="padding:6px; background-color:white; border-radius: 5px;">
+                        <input class="form-control" type="search" name="q" placeholder="Tìm kiếm...">
+                        <input type="submit" value="Tìm kiếm" style="padding:6px; background-color:white; border-radius: 5px;">
                     </form>
                 </li>
+
                 <li class="nav-item d-none d-md-block">
                     <a class="nav-link active" href="#">Giỏ hàng (0)</a>
                 </li>
 
                 <li class="nav-item ms-2 d-none d-lg-block">
-                    <a class="btn btn-outline-light btn-dang-nhap" href="#">
+                    <a class="btn btn-outline-light btn-dang-nhap" href="pages/dangnhap/login.php">
                         <i class="bi bi-person"></i> Đăng nhập
                     </a>
                 </li>
@@ -119,17 +112,9 @@
     </nav>
     <div class="body-content d-flex flex-wrap gap-4 justify-content-center">
         <?php
-             if(isset($_GET['tim']) && isset($_GET['search'])){
-    
-                $ten_tim_kiem = $_GET['search'];
-                $p->search($ten_tim_kiem); 
-                
-            } else {
-                $p->export_product('SELECT * FROM sanpham ORDER BY ten_sach ASC');
-                
-            }
-            if(isset($_GET['them'])){
-                switch($_GET['nut']){
+            $p->export_product('SELECT * FROM sanpham order by ten_sach asc');
+            if(isset($_POST['them'])){
+                switch($_POST['nut']){
                     case'Thêm':{
                         //Chỗ này cần bổ sung
                         break;
@@ -140,7 +125,6 @@
                     }
                 }
             }
-            
         ?>
     </div>
 </div>
