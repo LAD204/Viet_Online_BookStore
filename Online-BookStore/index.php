@@ -16,14 +16,14 @@
 <header>
     <nav class="navbar navbar-expand">
         <div class="container-fluid">
-            <a class="navbar-brand" href="javascript:location.reload();">
+            <a class="navbar-brand" href="index.php">
                 <img src="images/logo.jpg" alt="">
                 SÁCH VIỆT
             </a>
 
             <ul class="navbar-nav align-items-center ms-auto">
 
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="javascript:location.reload();">SÁCH MỚI</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="index.php">SÁCH MỚI</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">KHÓA HỌC</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">TIN TỨC</a></li>
@@ -32,7 +32,7 @@
                 <li class="nav-item dropdown d-lg-none">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MENU</a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="javascript:location.reload();">SÁCH MỚI</a></li>
+                        <li><a class="dropdown-item" href="index.php">SÁCH MỚI</a></li>
                         <li><a class="dropdown-item" href="#">KHÓA HỌC</a></li>
                         <li><a class="dropdown-item" href="#">GIỚI THIỆU</a></li>
                         <li><a class="dropdown-item" href="#">TIN TỨC</a></li>
@@ -90,14 +90,12 @@
                         <li><a class="dropdown-item" href="#">Sách bán chạy</a></li>
                     </ul>
                 </li>
-
                 <li class="nav-item flex-grow-1 mx-2">
                     <form class="d-flex align-items-center gap-2 search-form" role="search" action="#" method="get">
-                        <input class="form-control" type="search" name="q" placeholder="Tìm kiếm...">
-                        <input type="submit" value="Tìm kiếm" style="padding:6px; background-color:white; border-radius: 5px;">
+                        <input class="form-control" type="search" name="search" placeholder="Tìm kiếm...">
+                        <input type="submit" value="Tìm kiếm" name="tim" style="padding:6px; background-color:white; border-radius: 5px;">
                     </form>
                 </li>
-
                 <li class="nav-item d-none d-md-block">
                     <a class="nav-link active" href="pages/giohang/giohang.php">Giỏ hàng (<?php  ?>)</a>
                 </li>
