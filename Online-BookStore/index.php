@@ -16,14 +16,14 @@
 <header>
     <nav class="navbar navbar-expand">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="javascript:location.reload();">
                 <img src="images/logo.jpg" alt="">
                 SÁCH VIỆT
             </a>
 
             <ul class="navbar-nav align-items-center ms-auto">
 
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="index.php">SÁCH MỚI</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="javascript:location.reload();">SÁCH MỚI</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">KHÓA HỌC</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">TIN TỨC</a></li>
@@ -32,7 +32,7 @@
                 <li class="nav-item dropdown d-lg-none">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MENU</a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="index.php">SÁCH MỚI</a></li>
+                        <li><a class="dropdown-item" href="javascript:location.reload();">SÁCH MỚI</a></li>
                         <li><a class="dropdown-item" href="#">KHÓA HỌC</a></li>
                         <li><a class="dropdown-item" href="#">GIỚI THIỆU</a></li>
                         <li><a class="dropdown-item" href="#">TIN TỨC</a></li>
@@ -68,7 +68,7 @@
                         <li class="d-md-none"><a class="dropdown-item" href="#">Kinh tế</a></li>
                         <li class="d-md-none"><a class="dropdown-item" href="#">Sách bán chạy</a></li>
                         <li class="d-md-none"><hr class="dropdown-divider"></li>
-                        <li class="d-md-none"><a class="dropdown-item" href="pages/giohang/giohang.php">Giỏ hàng (0)</a></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="#">Giỏ hàng (0)</a></li>
 
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="pages/dangnhap/login.php">Đăng nhập</a></li>
@@ -90,70 +90,67 @@
                         <li><a class="dropdown-item" href="#">Sách bán chạy</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item flex-grow-1 mx-2">
                     <form class="d-flex align-items-center gap-2 search-form" role="search" action="#" method="get">
-                        <input class="form-control" type="search" name="search" placeholder="Tìm kiếm...">
-                        <input type="submit" value="Tìm kiếm" name="tim" style="padding:6px; background-color:white; border-radius: 5px;">
+                        <input class="form-control" type="search" name="q" placeholder="Tìm kiếm...">
+                        <input type="submit" value="Tìm kiếm" style="padding:6px; background-color:white; border-radius: 5px;">
                     </form>
                 </li>
+
                 <li class="nav-item d-none d-md-block">
-                    <a class="nav-link active" href="pages/giohang/giohang.php">Giỏ hàng (<?php  ?>)</a>
+                    <a class="nav-link active" href="#">Giỏ hàng (0)</a>
                 </li>
 
                 <li class="nav-item ms-2 d-none d-lg-block">
-                    <?php if(isset($_SESSION['user'])): ?>
-                        <div class="dropdown">
-                            <button class="btn btn-outline-light btn-dang-nhap dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-check-fill"></i> <?php echo $_SESSION['user']; ?>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end shadow p-3" style="min-width: 260px;">
-                        
-                                <li class="text-center mb-2">
-                                    <i class="bi bi-person-circle text-primary" style="font-size: 3rem;"></i>
-                                    <h6 class="mt-2 mb-0 fw-bold"><?php echo $_SESSION['user']; ?></h6>
-                                </li>
-
-                                <li class="text-center mt-2">
-                                    <a class="btn btn-danger btn-sm w-100" href="pages/dangxuat/logout.php">
-                                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                        </div>
-                    <?php else: ?>
-                        <a class="btn btn-outline-light btn-dang-nhap" href="pages/dangnhap/login.php">
-                            <i class="bi bi-person"></i> Đăng nhập
-                        </a>
-                    <?php endif; ?>
+                    <a class="btn btn-outline-light btn-dang-nhap" href="pages/dangnhap/login.php">
+                        <i class="bi bi-person"></i> Đăng nhập
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div id="bannerTinTuc" class="carousel slide shadow-sm mb-4 rounded overflow-hidden" data-bs-ride="carousel" style="width:80%; margin: 0 auto;">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#bannerTinTuc" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#bannerTinTuc" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#bannerTinTuc" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+    <div id="bannerTinTuc"
+     class="carousel slide shadow-sm mb-4 rounded overflow-hidden"
+     data-bs-ride="carousel"
+     data-bs-interval="3000"
+     style="width:80%; margin:0 auto;">
 
-        <div class="carousel-inner">
-            <?php
-                $p->poster('SELECT * FROM poster')
-            ?>
-        </div>
+    <div class="carousel-inner">
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#bannerTinTuc" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-75" aria-hidden="true"></span>
-            <span class="visually-hidden">Trang trước</span>
-        </button>
-        
-        <button class="carousel-control-next" type="button" data-bs-target="#bannerTinTuc" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-75" aria-hidden="true"></span>
-            <span class="visually-hidden">Trang sau</span>
-        </button>
-        
+        <?php
+            $p->poster('SELECT * FROM poster');
+        ?>
+
     </div>
+
+    <!-- Nút poster trước -->
+    <button class="carousel-control-prev"
+            type="button"
+            data-bs-target="#bannerTinTuc"
+            data-bs-slide="prev">
+
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-75"
+              aria-hidden="true">
+        </span>
+
+        <span class="visually-hidden">Poster trước</span>
+    </button>
+
+    <!-- Nút poster sau -->
+    <button class="carousel-control-next"
+            type="button"
+            data-bs-target="#bannerTinTuc"
+            data-bs-slide="next">
+
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-75"
+              aria-hidden="true">
+        </span>
+
+        <span class="visually-hidden">Poster sau</span>
+    </button>
+
+</div>
     <div class="body-content d-flex flex-wrap gap-4 justify-content-center">
         <?php
              if(isset($_GET['tim']) && isset($_GET['search'])){
@@ -164,6 +161,18 @@
             } else {
                 $p->export_product('SELECT * FROM sanpham ORDER BY ten_sach ASC');
                 
+            }
+            if(isset($_GET['them'])){
+                switch($_GET['nut']){
+                    case'Thêm':{
+                        //Chỗ này cần bổ sung
+                        break;
+                    }
+                    case'Xem chi tiết':{
+                        // Chỗ này cần bổ sung
+                        break;
+                    }
+                }
             }
         ?>
     </div>
