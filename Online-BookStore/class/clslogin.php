@@ -2,7 +2,7 @@
 include("clsbook.php");
 class login extends clsbook{
     public function mylogin($user,$pass){
-        $link = $this ->connect();
+        $link = $this->connect();
 
         // Chống SQL Injection cơ bản khi chạy trên host
         $user = mysqli_real_escape_string($link,$user);

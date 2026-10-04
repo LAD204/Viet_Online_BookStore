@@ -117,6 +117,7 @@
                 $ketqua = $p->add_user($username, $password, $sex, $telephone,  $gmail);
                 if($ketqua){
                     echo'<script>alert("Tạo tài khoản thành công");</script>';
+                    header('location:../dangnhap/login.php');
                 }
                 else{
                     echo'<script>alert("Tạo tài khoản thất bại");</script>';

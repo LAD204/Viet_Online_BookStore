@@ -68,7 +68,7 @@
                         <li class="d-md-none"><a class="dropdown-item" href="#">Kinh tế</a></li>
                         <li class="d-md-none"><a class="dropdown-item" href="#">Sách bán chạy</a></li>
                         <li class="d-md-none"><hr class="dropdown-divider"></li>
-                        <li class="d-md-none"><a class="dropdown-item" href="#">Giỏ hàng (0)</a></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="pages/giohang/giohang.php">Giỏ hàng (0)</a></li>
 
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="pages/dangnhap/login.php">Đăng nhập</a></li>
@@ -99,13 +99,35 @@
                 </li>
 
                 <li class="nav-item d-none d-md-block">
-                    <a class="nav-link active" href="#">Giỏ hàng (0)</a>
+                    <a class="nav-link active" href="pages/giohang/giohang.php">Giỏ hàng (<?php  ?>)</a>
                 </li>
 
                 <li class="nav-item ms-2 d-none d-lg-block">
-                    <a class="btn btn-outline-light btn-dang-nhap" href="pages/dangnhap/login.php">
-                        <i class="bi bi-person"></i> Đăng nhập
-                    </a>
+                    <?php if(isset($_SESSION['user'])): ?>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light btn-dang-nhap dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-check-fill"></i> <?php echo $_SESSION['user']; ?>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow p-3" style="min-width: 260px;">
+                        
+                                <li class="text-center mb-2">
+                                    <i class="bi bi-person-circle text-primary" style="font-size: 3rem;"></i>
+                                    <h6 class="mt-2 mb-0 fw-bold"><?php echo $_SESSION['user']; ?></h6>
+                                </li>
+
+                                <li class="text-center mt-2">
+                                    <a class="btn btn-danger btn-sm w-100" href="pages/dangxuat/logout.php">
+                                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    <?php else: ?>
+                        <a class="btn btn-outline-light btn-dang-nhap" href="pages/dangnhap/login.php">
+                            <i class="bi bi-person"></i> Đăng nhập
+                        </a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>
@@ -144,18 +166,6 @@
             } else {
                 $p->export_product('SELECT * FROM sanpham ORDER BY ten_sach ASC');
                 
-            }
-            if(isset($_GET['them'])){
-                switch($_GET['nut']){
-                    case'Thêm':{
-                        //Chỗ này cần bổ sung
-                        break;
-                    }
-                    case'Xem chi tiết':{
-                        // Chỗ này cần bổ sung
-                        break;
-                    }
-                }
             }
         ?>
     </div>
