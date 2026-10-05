@@ -2,6 +2,12 @@
    session_start();
    include('class/clsconnect.php'); 
    $p = new csdl();
+   $tong_soluong_giohang = 0;
+    if (isset($_SESSION['cart'])) {
+        foreach ($_SESSION['cart'] as $id_sp => $qty) {
+            $tong_soluong_giohang += $qty;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +74,7 @@
                         <li class="d-md-none"><a class="dropdown-item" href="#">Kinh tế</a></li>
                         <li class="d-md-none"><a class="dropdown-item" href="#">Sách bán chạy</a></li>
                         <li class="d-md-none"><hr class="dropdown-divider"></li>
-                        <li class="d-md-none"><a class="dropdown-item" href="#">Giỏ hàng (0)</a></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="pages/giohang/giohang.php">Giỏ hàng (<?= $tong_soluong_giohang ?>)</a></li>
 
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="pages/dangnhap/login.php">Đăng nhập</a></li>
@@ -93,13 +99,13 @@
 
                 <li class="nav-item flex-grow-1 mx-2">
                     <form class="d-flex align-items-center gap-2 search-form" role="search" action="#" method="get">
-                        <input class="form-control" type="search" name="q" placeholder="Tìm kiếm...">
-                        <input type="submit" value="Tìm kiếm" style="padding:6px; background-color:white; border-radius: 5px;">
+                        <input class="form-control" type="search" name="search" placeholder="Tìm kiếm...">
+                        <input type="submit" value="Tìm kiếm" name="tim" style="padding:6px; background-color:white; border-radius: 5px;">
                     </form>
                 </li>
 
                 <li class="nav-item d-none d-md-block">
-                    <a class="nav-link active" href="#">Giỏ hàng (0)</a>
+                    <a class="nav-link active" href="pages/giohang/giohang.php">Giỏ hàng (<?= $tong_soluong_giohang ?>)</a>
                 </li>
 
                 <li class="nav-item ms-2 d-none d-lg-block">
@@ -124,7 +130,6 @@
 
     </div>
 
-    <!-- Nút poster trước -->
     <button class="carousel-control-prev"
             type="button"
             data-bs-target="#bannerTinTuc"
@@ -136,8 +141,6 @@
 
         <span class="visually-hidden">Poster trước</span>
     </button>
-
-    <!-- Nút poster sau -->
     <button class="carousel-control-next"
             type="button"
             data-bs-target="#bannerTinTuc"
@@ -161,18 +164,6 @@
             } else {
                 $p->export_product('SELECT * FROM sanpham ORDER BY ten_sach ASC');
                 
-            }
-            if(isset($_GET['them'])){
-                switch($_GET['nut']){
-                    case'Thêm':{
-                        //Chỗ này cần bổ sung
-                        break;
-                    }
-                    case'Xem chi tiết':{
-                        // Chỗ này cần bổ sung
-                        break;
-                    }
-                }
             }
         ?>
     </div>

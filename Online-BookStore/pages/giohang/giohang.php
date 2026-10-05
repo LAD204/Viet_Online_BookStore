@@ -44,6 +44,12 @@ if (isset($_GET['del_id'])) {
     header("Location: giohang.php");
     exit();
 }
+
+// Tính tổng số lượng hiển thị Navbar
+$tong_soluong_giohang = 0;
+foreach ($_SESSION['cart'] as $id_sp => $qty) {
+    $tong_soluong_giohang += $qty;
+}
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -62,6 +68,8 @@ if (isset($_GET['del_id'])) {
                 <img src="../../images/logo.jpg" alt="Logo"> SÁCH VIỆT
             </a>
             <ul class="navbar-nav align-items-center ms-auto">
+                <!-- Thêm hiển thị giỏ hàng (X) vào đây -->
+                <li class="nav-item me-3"><a class="nav-link fw-bold text-primary" href="giohang.php">Giỏ hàng (<?= $tong_soluong_giohang ?>)</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../index.php">TIẾP TỤC MUA SẮM</a></li>
             </ul>
         </div>
@@ -134,7 +142,7 @@ if (isset($_GET['del_id'])) {
         <div class="d-flex justify-content-end align-items-center gap-3">
             <div class="text-end">
                 <h5 class="mb-2">Tổng tiền: <span class="text-danger fw-bold fs-4" id="cart-total"><?= number_format($tong_tien, 0, ',', '.') ?> đ</span></h5>
-                <a href="thanhtoan.php" class="btn btn-success btn-lg">Tiến hành đặt hàng</a>
+                <a href="../dathang/dathang.php" class="btn btn-success btn-lg">Tiến hành đặt hàng</a>
             </div>
         </div>
     <?php endif; ?>
@@ -158,11 +166,9 @@ document.querySelectorAll('.cart-qty-input').forEach(input => {
             this.value = max;
         }
 
-        // 1. Tính và nhảy số tiền trực tiếp trên giao diện
         const subtotal = price * qty;
         row.querySelector('.item-subtotal').textContent = subtotal.toLocaleString('vi-VN') + ' đ';
 
-        // 2. Cập nhật lại tổng tiền giỏ hàng
         let total = 0;
         document.querySelectorAll('.cart-item-row').forEach(r => {
             const p = parseFloat(r.getAttribute('data-price'));
@@ -171,7 +177,6 @@ document.querySelectorAll('.cart-qty-input').forEach(input => {
         });
         document.getElementById('cart-total').textContent = total.toLocaleString('vi-VN') + ' đ';
 
-        // 3. Gửi Ajax lưu ngầm vào Session PHP
         const formData = new FormData();
         formData.append('action', 'ajax_update');
         formData.append('id', id);
