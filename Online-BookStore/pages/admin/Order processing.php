@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_update_status']))
         <a href="dashboard.php" class="nav-link-custom text-decoration-none">Thống kê đơn hàng</a>
         <a href="Order processing.php" class="nav-link-custom text-decoration-none active">Xử lý đơn hàng</a>
         <a href="sanpham.php" class="nav-link-custom text-decoration-none">Post sản phẩm</a>
-        <a href="baiviet.php" class="nav-link-custom text-decoration-none">Post bài viết</a>
+        <a href="postbaiviet.php" class="nav-link-custom text-decoration-none">Post bài viết</a>
       </div>
 
       <!-- Nút Đăng xuất -->
