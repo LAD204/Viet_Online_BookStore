@@ -129,9 +129,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
   </main>
 
 
-    <div class="footer mt-auto py-3 text-center border-top">
-        <a href="#" class="text-decoration-none mx-2 text-muted">Trợ giúp</a>
-        <a href="#" class="text-decoration-none mx-2 text-muted">Điều khoản</a>
+    <div class="footer">
+        <a href="#" >Trợ giúp</a>
+        <a href="#" >Điều khoản</a>
         <span class="text-muted mx-2">Bản quyền © 2026 SÁCH VIỆT</span>
     </div>
 
