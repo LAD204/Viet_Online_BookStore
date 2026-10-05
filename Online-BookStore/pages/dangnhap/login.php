@@ -1,5 +1,5 @@
 <?php
-// login.php
+
 session_start();
 include_once("../../class/clslogin.php");
 $p = new login();
@@ -15,6 +15,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['role'])){
     exit();
 }
 
+
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
     $user = trim($_POST['user'] ?? '');
     $pass = $_POST['password'] ?? '';
@@ -22,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
     if($user != '' && $pass != ''){
         $result = $p->mylogin($user,$pass);
         if($result == 1){
-            if($_SESSION['role']==1){
+              if($_SESSION['role']==1){
                 header('location: ../admin/dashboard.php');
             }else{
               header('location: ../../index.php');
@@ -49,10 +50,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
 <link rel="stylesheet" href="../../layout/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../layout/css/login-style.css">
 
+  
 </head>
 <body>
 
- <header>
+  <!-- Header / Navigation tinh chỉnh đẹp mắt -->
+   <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../../index.php">
@@ -77,6 +80,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
     </header>
 
 
+  
     <main class="py-4">
     <div class="container">
       <div class="row justify-content-center">
@@ -124,14 +128,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
     </div>
   </main>
 
-     <div class="footer">
-        <a href="#">Trợ giúp</a>
-        <a href="#">Điều khoản</a>
-        <span>Bản quyền © 2024 SACHVIET.VN</span>
+
+    <div class="footer">
+        <a href="#" >Trợ giúp</a>
+        <a href="#" >Điều khoản</a>
+        <span class="text-muted mx-2">Bản quyền © 2026 SÁCH VIỆT</span>
     </div>
-        
-    
-    
+
 
   <script src="../../layout/js/bootstrap.bundle.min.js"></script>
   <script>

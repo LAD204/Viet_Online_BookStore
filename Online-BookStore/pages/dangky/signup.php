@@ -90,10 +90,10 @@
         </div>
     </div>
 
-    <div class="footer">
-        <a href="#">Trợ giúp</a>
-        <a href="#">Điều khoản</a>
-        <span>Bản quyền © 2024 SACHVIET.VN</span>
+    <div class="footer mt-auto py-3 text-center border-top">
+        <a href="#" class="text-decoration-none mx-2 text-muted">Trợ giúp</a>
+        <a href="#" class="text-decoration-none mx-2 text-muted">Điều khoản</a>
+        <span class="text-muted mx-2">Bản quyền © 2026 SÁCH VIỆT</span>
     </div>
     <?php
         switch(isset($_POST['dangky']))
@@ -116,8 +116,10 @@
                 }
                 $ketqua = $p->add_user($username, $password, $sex, $telephone,  $gmail);
                 if($ketqua){
-                    echo'<script>alert("Tạo tài khoản thành công");</script>';
-                    header('location:../dangnhap/login.php');
+                    echo '<script>
+                            alert("Tạo tài khoản thành công");
+                            window.location.href = "../dangnhap/login.php";
+                        </script>';
                     exit();
                 }
                 else{

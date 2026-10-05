@@ -35,7 +35,7 @@
             
             $kiemtra = mysqli_query($link, $sql_check_user_exist);
             if(mysqli_num_rows($kiemtra)>0){
-                echo 'Tên user hoặc số điện thoại đã tồn tại';
+                echo '<script>alert("Tên hoặc số điện thoại đã tồn tại!");</script>';
                 exit();
             }
             else{
@@ -67,10 +67,8 @@
                                         
                                         <p class="card-text text-danger fw-bold mb-3">'.$row['gia_ban'].' VNĐ</p>
                                         <div class="mt-auto d-flex gap-2">
-                                            <input type="submit" class="btn btn-primary w-50" style="font-size: 14px;" value="Thêm">
-                                            
                                             <a href="pages/trangchu/chitietsanpham.php?id='.base64_encode($row['id']).'" 
-                                               class="btn btn-outline-secondary w-50" 
+                                               class="btn btn-outline-secondary w-100" 
                                                style="font-size:14px; text-decoration:none; text-align:center; line-height:2;">
                                                  Xem chi tiết
                                             </a>
@@ -115,6 +113,24 @@
                 ';
                 $class_active = ''; 
             }
+        }
+        public function demSoLuongDonHangTrongGio($user_id) {
+            $link = $this->connect();
+            $sql = "SELECT SUM(c.so_luong) as tong_so_luong 
+                    FROM giohang g 
+                    JOIN chitietgiohang c ON g.id = c.giohang_id 
+                    WHERE g.user_id = '$user_id'";
+                    
+            $result = mysqli_query($link, $sql);
+            
+            if ($result && mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $tong = $row['tong_so_luong'];
+                return $tong ? $tong : 0; 
+            }
+            
+            mysqli_close($link);
+            return 0;
         }
     }
 ?>

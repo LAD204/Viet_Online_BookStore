@@ -15,9 +15,10 @@ if (isset($_POST['btnThem'])) {
     $hinh_anh = $_FILES['hinh_anh']['name'];
     $tmp_name = $_FILES['hinh_anh']['tmp_name'];
 
-    // Đưa hình ảnh vào thư mục images
+    // Kiểm tra có hình ảnh hay không
     if ($hinh_anh != '') {
 
+        // Đưa hình ảnh vào thư mục images
         move_uploaded_file(
             $tmp_name,
             "../../images/" . $hinh_anh
@@ -33,12 +34,15 @@ if (isset($_POST['btnThem'])) {
             $hinh_anh
         );
 
+        // Thông báo kết quả
         if ($result) {
+
             echo '<script>
                     alert("Đăng sản phẩm thành công!");
-                    window.location="../../index.php";
                   </script>';
+
         } else {
+
             echo '<script>
                     alert("Đăng sản phẩm thất bại!");
                   </script>';
@@ -51,12 +55,14 @@ if (isset($_POST['btnThem'])) {
 <html lang="vi">
 
 <head>
+
     <meta charset="UTF-8">
 
     <title>Đăng sản phẩm</title>
 
     <link rel="stylesheet"
           href="../../layout/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -72,6 +78,7 @@ if (isset($_POST['btnThem'])) {
 
         <!-- Tên sách -->
         <div class="mb-3">
+
             <label class="form-label">
                 Tên sách
             </label>
@@ -80,10 +87,13 @@ if (isset($_POST['btnThem'])) {
                    name="ten_sach"
                    class="form-control"
                    required>
+
         </div>
+
 
         <!-- Giá bán -->
         <div class="mb-3">
+
             <label class="form-label">
                 Giá bán
             </label>
@@ -92,10 +102,13 @@ if (isset($_POST['btnThem'])) {
                    name="gia_ban"
                    class="form-control"
                    required>
+
         </div>
+
 
         <!-- Số lượng -->
         <div class="mb-3">
+
             <label class="form-label">
                 Số lượng
             </label>
@@ -104,10 +117,13 @@ if (isset($_POST['btnThem'])) {
                    name="so_luong"
                    class="form-control"
                    required>
+
         </div>
+
 
         <!-- Mô tả -->
         <div class="mb-3">
+
             <label class="form-label">
                 Mô tả
             </label>
@@ -116,10 +132,13 @@ if (isset($_POST['btnThem'])) {
                       class="form-control"
                       rows="4"
                       required></textarea>
+
         </div>
+
 
         <!-- Năm xuất bản -->
         <div class="mb-3">
+
             <label class="form-label">
                 Năm xuất bản
             </label>
@@ -128,10 +147,13 @@ if (isset($_POST['btnThem'])) {
                    name="nam_xuat_ban"
                    class="form-control"
                    required>
+
         </div>
+
 
         <!-- Hình ảnh -->
         <div class="mb-3">
+
             <label class="form-label">
                 Hình ảnh
             </label>
@@ -141,25 +163,34 @@ if (isset($_POST['btnThem'])) {
                    class="form-control"
                    accept="image/*"
                    required>
+
         </div>
+
 
         <!-- Nút -->
         <button type="submit"
                 name="btnThem"
                 class="btn btn-primary">
+
             Đăng sản phẩm
+
         </button>
 
-        <a href="../../index.php"
+
+        <a href="dashboard.php"
            class="btn btn-secondary">
+
             Quay lại
+
         </a>
 
     </form>
 
 </div>
 
+
 <script src="../../layout/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

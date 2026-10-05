@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-include_once("../../class/clssanpham.php");
+include_once("../../class/clsposter.php");
 
-$p = new sanpham();
+$p = new poster();
 
 // Kiểm tra quyền Admin
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
@@ -11,53 +11,51 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
     exit();
 }
 
-// Khi bấm Post sản phẩm
+// Khi bấm Post Poster
 if (isset($_POST['btnPost'])) {
 
-    $ten_sach = $_POST['ten_sach'];
-    $gia_ban = $_POST['gia_ban'];
-    $so_luong = $_POST['so_luong'];
-    $mo_ta = $_POST['mo_ta'];
-    $nam_xuat_ban = $_POST['nam_xuat_ban'];
-
-    // Lấy hình ảnh
+    // Lấy tên hình ảnh
     $hinh_anh = $_FILES['hinh_anh']['name'];
     $tmp_name = $_FILES['hinh_anh']['tmp_name'];
 
     if ($hinh_anh != '') {
 
-        // Đưa ảnh vào thư mục images
-        move_uploaded_file(
+        // Lưu hình vào thư mục images
+        $upload = move_uploaded_file(
             $tmp_name,
             "../../images/" . $hinh_anh
         );
 
-        // Lưu sản phẩm vào database
-        $result = $p->postsanpham(
-            $ten_sach,
-            $gia_ban,
-            $so_luong,
-            $mo_ta,
-            $nam_xuat_ban,
-            $hinh_anh
-        );
+        if ($upload) {
 
-        if ($result) {
+            // Lưu tên hình vào bảng poster
+            $result = $p->postposter($hinh_anh);
 
-            echo '<script>
-                    alert("Post sản phẩm thành công!");
-                  </script>';
+            if ($result) {
+
+                echo '<script>
+                        alert("Post poster thành công!");
+                        window.location="postbaiviet.php";
+                      </script>';
+
+            } else {
+
+                echo '<script>
+                        alert("Post poster thất bại!");
+                      </script>';
+            }
 
         } else {
 
             echo '<script>
-                    alert("Post sản phẩm thất bại!");
+                    alert("Không thể upload hình ảnh!");
                   </script>';
         }
+
     } else {
 
         echo '<script>
-                alert("Vui lòng chọn hình ảnh sản phẩm!");
+                alert("Vui lòng chọn poster!");
               </script>';
     }
 }
@@ -73,7 +71,7 @@ if (isset($_POST['btnPost'])) {
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Post sản phẩm - SÁCH VIỆT Admin</title>
+    <title>Post Bài Viết - SÁCH VIỆT Admin</title>
 
     <link rel="stylesheet"
           href="../../layout/css/bootstrap.min.css">
@@ -92,6 +90,7 @@ if (isset($_POST['btnPost'])) {
     <div class="container-fluid px-4">
 
         <!-- Logo -->
+
         <div class="d-flex align-items-center gap-3">
 
             <a class="navbar-brand"
@@ -143,14 +142,14 @@ if (isset($_POST['btnPost'])) {
             </a>
 
             <a href="sanpham.php"
-               class="nav-link-custom text-decoration-none active">
+               class="nav-link-custom text-decoration-none">
 
                 Post sản phẩm
 
             </a>
 
-            <a href="baiviet.php"
-               class="nav-link-custom text-decoration-none">
+            <a href="postbaiviet.php"
+               class="nav-link-custom text-decoration-none active">
 
                 Post bài viết
 
@@ -175,18 +174,18 @@ if (isset($_POST['btnPost'])) {
 
 <!-- ================= NỘI DUNG ================= -->
 
-<main class="container py-4">
+<main class="container-fluid px-4">
 
     <div class="row justify-content-center">
 
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-md-8 col-lg-6">
 
             <div class="admin-card p-4">
 
                 <h4 class="fw-bold mb-4 text-center"
                     style="color: var(--primary-color);">
 
-                    POST SẢN PHẨM
+                    POST BÀI VIẾT
 
                 </h4>
 
@@ -195,98 +194,12 @@ if (isset($_POST['btnPost'])) {
                       enctype="multipart/form-data">
 
 
-                    <!-- TÊN SÁCH -->
-
-                    <div class="mb-3">
-
-                        <label class="form-label fw-semibold">
-                            Tên sách
-                        </label>
-
-                        <input type="text"
-                               name="ten_sach"
-                               class="form-control"
-                               placeholder="Nhập tên sách"
-                               required>
-
-                    </div>
-
-
-                    <!-- GIÁ -->
-
-                    <div class="mb-3">
-
-                        <label class="form-label fw-semibold">
-                            Giá bán
-                        </label>
-
-                        <input type="number"
-                               name="gia_ban"
-                               class="form-control"
-                               placeholder="Nhập giá bán"
-                               min="0"
-                               required>
-
-                    </div>
-
-
-                    <!-- SỐ LƯỢNG -->
-
-                    <div class="mb-3">
-
-                        <label class="form-label fw-semibold">
-                            Số lượng
-                        </label>
-
-                        <input type="number"
-                               name="so_luong"
-                               class="form-control"
-                               placeholder="Nhập số lượng"
-                               min="0"
-                               required>
-
-                    </div>
-
-
-                    <!-- MÔ TẢ -->
-
-                    <div class="mb-3">
-
-                        <label class="form-label fw-semibold">
-                            Mô tả
-                        </label>
-
-                        <textarea name="mo_ta"
-                                  class="form-control"
-                                  rows="5"
-                                  placeholder="Nhập mô tả sản phẩm"
-                                  required></textarea>
-
-                    </div>
-
-
-                    <!-- NĂM XUẤT BẢN -->
-
-                    <div class="mb-3">
-
-                     <label class="form-label fw-semibold">
-                      Ngày xuất bản
-                    </label>
-
-                     <input type="date"
-                     name="nam_xuat_ban"
-                     class="form-control"
-                      required>
-
-                     </div>
-
-
-                    <!-- HÌNH ẢNH -->
+                    <!-- CHỌN POSTER -->
 
                     <div class="mb-4">
 
                         <label class="form-label fw-semibold">
-                            Hình ảnh sản phẩm
+                            Chọn poster
                         </label>
 
                         <input type="file"
@@ -294,6 +207,10 @@ if (isset($_POST['btnPost'])) {
                                class="form-control"
                                accept="image/*"
                                required>
+
+                        <div class="form-text">
+                            Chọn hình ảnh poster muốn đăng lên trang chủ.
+                        </div>
 
                     </div>
 
@@ -313,7 +230,7 @@ if (isset($_POST['btnPost'])) {
                                 name="btnPost"
                                 class="btn btn-primary px-4">
 
-                            Post sản phẩm
+                            Post Poster
 
                         </button>
 
@@ -342,4 +259,6 @@ if (isset($_POST['btnPost'])) {
 <script src="../../layout/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
+```
