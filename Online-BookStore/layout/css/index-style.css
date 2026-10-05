@@ -73,6 +73,14 @@
         margin-right: 8px;
     }
 }
+
+#bannerTinTuc .carousel-inner img {
+    width: 100% !important; 
+    height: auto !important; 
+    aspect-ratio: 5 / 1 !important; 
+    object-fit: cover; 
+}
+
 .navbar {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);

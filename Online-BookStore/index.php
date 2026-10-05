@@ -31,7 +31,7 @@
 
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="javascript:location.reload();">SÁCH MỚI</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">KHÓA HỌC</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="pages/gioithieu/gioithieu.php">GIỚI THIỆU</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">TIN TỨC</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">LIÊN HỆ</a></li>
 
@@ -40,7 +40,7 @@
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="javascript:location.reload();">SÁCH MỚI</a></li>
                         <li><a class="dropdown-item" href="#">KHÓA HỌC</a></li>
-                        <li><a class="dropdown-item" href="#">GIỚI THIỆU</a></li>
+                        <li><a class="dropdown-item" href="pages/gioithieu/gioithieu.php">GIỚI THIỆU</a></li>
                         <li><a class="dropdown-item" href="#">TIN TỨC</a></li>
                         <li><a class="dropdown-item" href="#">LIÊN HỆ</a></li>
                         <li class="d-md-none"><hr class="dropdown-divider"></li>
@@ -74,7 +74,7 @@
                         <li class="d-md-none"><a class="dropdown-item" href="#">Kinh tế</a></li>
                         <li class="d-md-none"><a class="dropdown-item" href="#">Sách bán chạy</a></li>
                         <li class="d-md-none"><hr class="dropdown-divider"></li>
-                        <li class="d-md-none"><a class="dropdown-item" href="pages/giohang/giohang.php">Giỏ hàng (<?= $tong_soluong_giohang ?>)</a></li>
+                        <li class="d-md-none"><a class="dropdown-item" href="pages/giohang/giohang.php">Giỏ hàng (<?= $tong_soluong_giohang?>)</a></li>
 
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="pages/dangnhap/login.php">Đăng nhập</a></li>
@@ -109,51 +109,64 @@
                 </li>
 
                 <li class="nav-item ms-2 d-none d-lg-block">
-                    <a class="btn btn-outline-light btn-dang-nhap" href="pages/dangnhap/login.php">
-                        <i class="bi bi-person"></i> Đăng nhập
-                    </a>
+                    <?php if(isset($_SESSION['user'])): ?>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-check-fill"></i> <?php echo $_SESSION['user']; ?>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                <li>
+                                    <a class="dropdown-item text-danger" href="pages/dangxuat/logout.php">
+                                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    <?php else: ?>
+                        <a class="btn btn-outline-light btn-dang-nhap" href="#">
+                            <i class="bi bi-person"></i> Chưa đăng nhập
+                        </a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>
     </nav>
-    <div id="bannerTinTuc"
-     class="carousel slide shadow-sm mb-4 rounded overflow-hidden"
-     data-bs-ride="carousel"
-     data-bs-interval="3000"
-     style="width:80%; margin:0 auto;">
+    <div id="bannerTinTuc" class="carousel slide shadow-sm mb-4 rounded overflow-hidden"
+            data-bs-ride="carousel"
+            data-bs-interval="3000"
+            style="width:80%; margin:0 auto;">
 
-    <div class="carousel-inner">
+        <div class="carousel-inner">
 
-        <?php
-            $p->poster('SELECT * FROM poster');
-        ?>
+            <?php
+                $p->poster('SELECT * FROM poster');
+            ?>
 
+        </div>
+
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#bannerTinTuc"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-75"
+                aria-hidden="true">
+            </span>
+
+            <span class="visually-hidden">Poster trước</span>
+        </button>
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#bannerTinTuc"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-75"
+                aria-hidden="true">
+            </span>
+
+            <span class="visually-hidden">Poster sau</span>
+        </button>
     </div>
-
-    <button class="carousel-control-prev"
-            type="button"
-            data-bs-target="#bannerTinTuc"
-            data-bs-slide="prev">
-
-        <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-75"
-              aria-hidden="true">
-        </span>
-
-        <span class="visually-hidden">Poster trước</span>
-    </button>
-    <button class="carousel-control-next"
-            type="button"
-            data-bs-target="#bannerTinTuc"
-            data-bs-slide="next">
-
-        <span class="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-75"
-              aria-hidden="true">
-        </span>
-
-        <span class="visually-hidden">Poster sau</span>
-    </button>
-
-</div>
     <div class="body-content d-flex flex-wrap gap-4 justify-content-center">
         <?php
              if(isset($_GET['tim']) && isset($_GET['search'])){

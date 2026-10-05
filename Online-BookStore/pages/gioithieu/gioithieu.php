@@ -120,7 +120,6 @@ session_start();
     </div>
 </div>
 
-<!-- FOOTER (ĐỒNG BỘ NGUYÊN BẢN TỪ INDEX.PHP) -->
 <footer class="footer">
     <div class="container-fluid px-5">
         <div class="row g-4">

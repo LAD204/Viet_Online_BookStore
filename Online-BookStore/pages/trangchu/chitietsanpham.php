@@ -84,11 +84,30 @@ if (isset($_SESSION['cart'])) {
                         Giỏ hàng (<?php echo $tong_soluong_giohang; ?>)
                     </a>
                 </li>
+                <li class="nav-item ms-2 d-none d-lg-block">
+                    <?php if(isset($_SESSION['user'])): ?>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-check-fill"></i> <?php echo $_SESSION['user']; ?>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                <li>
+                                    <a class="dropdown-item text-danger" href="pages/dangxuat/logout.php">
+                                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    <?php else: ?>
+                        <a class="btn btn-outline-light btn-dang-nhap" href="#">
+                            <i class="bi bi-person"></i> Chưa đăng nhập
+                        </a>
+                    <?php endif; ?>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!-- CHI TIẾT SẢN PHẨM -->
     <div class="container mt-5 mb-5">
         <?php if ($sanpham) { ?>
             <div class="card shadow">
