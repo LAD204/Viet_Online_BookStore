@@ -30,9 +30,6 @@
                         <li class="nav-item"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">TIN TỨC</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">LIÊN HỆ</a></li>
-                        <li class="nav-item ms-3">
-                            <a class="btn btn-outline-dark" href="../dangnhap/login.php">ĐĂNG NHẬP</a>
-                        </li>
                     </ul>
                 </div>
             </div>

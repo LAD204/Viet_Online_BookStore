@@ -22,14 +22,14 @@
 <header>
     <nav class="navbar navbar-expand">
         <div class="container-fluid">
-            <a class="navbar-brand" href="javascript:location.reload();">
+            <a class="navbar-brand" href="index.php">
                 <img src="images/logo.jpg" alt="">
                 SÁCH VIỆT
             </a>
 
             <ul class="navbar-nav align-items-center ms-auto">
 
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="javascript:location.reload();">SÁCH MỚI</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="index.php">SÁCH MỚI</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">KHÓA HỌC</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="pages/gioithieu/gioithieu.php">GIỚI THIỆU</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">TIN TỨC</a></li>
@@ -38,18 +38,13 @@
                 <li class="nav-item dropdown d-lg-none">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MENU</a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="javascript:location.reload();">SÁCH MỚI</a></li>
+                        <li><a class="dropdown-item" href="index.php">SÁCH MỚI</a></li>
                         <li><a class="dropdown-item" href="#">KHÓA HỌC</a></li>
                         <li><a class="dropdown-item" href="pages/gioithieu/gioithieu.php">GIỚI THIỆU</a></li>
                         <li><a class="dropdown-item" href="#">TIN TỨC</a></li>
                         <li><a class="dropdown-item" href="#">LIÊN HỆ</a></li>
                         <li class="d-md-none"><hr class="dropdown-divider"></li>
-                        <li class="d-md-none"><a class="dropdown-item" href="pages/dangnhap/login.php">ĐĂNG NHẬP</a></li>
                     </ul>
-                </li>
-
-                <li class="nav-item ms-3 d-none d-md-block">
-                    <a class="btn btn-outline-dark" href="pages/dangnhap/login.php">ĐĂNG NHẬP</a>
                 </li>
             </ul>
         </div>
@@ -77,12 +72,11 @@
                         <li class="d-md-none"><a class="dropdown-item" href="pages/giohang/giohang.php">Giỏ hàng (<?= $tong_soluong_giohang?>)</a></li>
 
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="pages/dangnhap/login.php">Đăng nhập</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item d-none d-lg-block">
-                    <a class="nav-link active" aria-current="page" href="javascript:location.reload();">Trang chủ</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
                 </li>
 
                 <li class="nav-item dropdown d-none d-md-block">
@@ -123,8 +117,8 @@
                             </ul>
                         </div>
                     <?php else: ?>
-                        <a class="btn btn-outline-light btn-dang-nhap" href="#">
-                            <i class="bi bi-person"></i> Chưa đăng nhập
+                        <a class="btn btn-outline-light btn-dang-nhap" href="pages/dangnhap/login.php">
+                            <i class="bi bi-person" href="pages/dangnhap/login.php"></i> Đăng nhập
                         </a>
                     <?php endif; ?>
                 </li>

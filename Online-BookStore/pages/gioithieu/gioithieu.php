@@ -27,15 +27,6 @@ session_start();
                 <li class="nav-item d-none d-lg-block"><a class="nav-link text-primary fw-bold" href="gioithieu.php">GIỚI THIỆU</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">TIN TỨC</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">LIÊN HỆ</a></li>
-
-                <li class="nav-item ms-3">
-                    <?php if (isset($_SESSION['user'])): ?>
-                        <span class="fw-semibold me-2"><?= htmlspecialchars($_SESSION['user']) ?></span>
-                        <a class="btn btn-outline-danger btn-sm" href="../dangxuat/logout.php">ĐĂNG XUẤT</a>
-                    <?php else: ?>
-                        <a class="btn btn-outline-dark" href="../dangnhap/login.php">ĐĂNG NHẬP</a>
-                    <?php endif; ?>
-                </li>
             </ul>
         </div>
     </nav>
@@ -73,6 +64,26 @@ session_start();
                     <a class="nav-link active" href="giohang.php">
                         Giỏ hàng (<?= isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0 ?>)
                     </a>
+                </li>
+                <li class="nav-item ms-2 d-none d-lg-block">
+                    <?php if(isset($_SESSION['user'])): ?>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-check-fill"></i> <?php echo $_SESSION['user']; ?>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                <li>
+                                    <a class="dropdown-item text-danger" href="../dangxuat/logout.php">
+                                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    <?php else: ?>
+                        <a class="btn btn-outline-light btn-dang-nhap" href="../dangnhap/login.php">
+                            <i class="bi bi-person" href="../dangnhap/login.php"></i> Đăng nhập
+                        </a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>

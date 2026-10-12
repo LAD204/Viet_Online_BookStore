@@ -149,7 +149,7 @@ if (isset($_POST['btnPost'])) {
 
             </a>
 
-            <a href="baiviet.php"
+            <a href="postbaiviet.php"
                class="nav-link-custom text-decoration-none">
 
                 Post bài viết

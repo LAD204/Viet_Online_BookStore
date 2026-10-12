@@ -70,9 +70,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
                         <li class="nav-item"><a class="nav-link" href="../gioithieu/gioithieu.php">GIỚI THIỆU</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">TIN TỨC</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">LIÊN HỆ</a></li>
-                        <li class="nav-item ms-3">
-                            <a class="btn btn-outline-dark" href="../dangky/signup.php">ĐĂNG KÝ</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -101,11 +98,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
               </div>
 
               <div class="mb-3">
-                <div class="d-flex justify-content-between">
-                  <label for="password" class="form-label fw-semibold">Mật khẩu</label>
-                  <a href="forgot-password.php" class="text-decoration-none small text-muted">Quên mật khẩu?</a>
-                </div>
                 <div class="password-wrapper">
+                  <label for="user" class="form-label fw-semibold">Mật khẩu</label>
                   <input type="password" class="form-control pe-5" id="password" name="password" placeholder="Nhập mật khẩu" required>
                   <button type="button" class="btn-toggle-eye" id="togglePassword">Hiện</button>
                 </div>
@@ -114,12 +108,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_login'])){
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="remember" name="remember">
                 <label class="form-check-label text-muted small" for="remember">Ghi nhớ đăng nhập</label>
+                <a href="#" style="padding:50px;" class="text-decoration-none small text-muted">Quên mật khẩu?</a>
               </div>
-
               <button type="submit" name="btn_login" class="btn btn-submit w-100 mb-3">Đăng nhập</button>
 
               <div class="login-link">
-                Bạn chưa có tài khoản? <a href="../dangky/signup.php">Đăng ký ngay</a>
+              Bạn chưa có tài khoản? <a href="../dangky/signup.php">Đăng ký ngay</a>
             </div>
             </form>
           </div>
