@@ -67,7 +67,7 @@
                                         
                                         <p class="card-text text-danger fw-bold mb-3">'.$row['gia_ban'].' VNĐ</p>
                                         <div class="mt-auto d-flex gap-2">
-                                            <a href="pages/trangchu/chitietsanpham.php?id='.base64_encode($row['id']).'" 
+                                            <a href="pages/chitietsanpham/chitietsanpham.php?id='.base64_encode($row['id']).'" 
                                                class="btn btn-outline-secondary w-100" 
                                                style="font-size:14px; text-decoration:none; text-align:center; line-height:2;">
                                                  Xem chi tiết

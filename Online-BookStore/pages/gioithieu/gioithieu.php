@@ -17,17 +17,9 @@ session_start();
     <nav class="navbar navbar-expand">
         <div class="container-fluid">
             <a class="navbar-brand" href="../../index.php">
-                <img src="../../images/logo.jpg" alt="Logo">
+                <img src="../../images/logo.jpg" alt="">
                 SÁCH VIỆT
             </a>
-
-            <ul class="navbar-nav align-items-center ms-auto">
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.php">SÁCH MỚI</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">KHÓA HỌC</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link text-primary fw-bold" href="gioithieu.php">GIỚI THIỆU</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">TIN TỨC</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#">LIÊN HỆ</a></li>
-            </ul>
         </div>
     </nav>
 </header>
@@ -37,35 +29,58 @@ session_start();
     <nav class="navbar navbar-expand navbar-dark bg-primary menu-chinh">
         <div class="container-fluid">
             <ul class="navbar-nav align-items-center w-100">
-                <li class="nav-item">
-                    <a class="nav-link active" href="../../index.php">Trang chủ</a>
-                </li>
 
-                <li class="nav-item dropdown d-none d-md-block">
-                    <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">
-                        Danh mục sách
+                <!-- Nút 3 gạch (Mobile): Chỉ hiện ở Mobile, ẩn ở Tablet và PC (d-md-none) -->
+                <li class="nav-item dropdown d-md-none">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Mở menu">
+                        <span class="navbar-toggler-icon"></span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Lập trình &amp; IT</a></li>
-                        <li><a class="dropdown-item" href="#">Kinh tế</a></li>
+                    <!-- Nội dung của nút 3 gạch -->
+                    <ul class="dropdown-menu shadow">
+                        <li><a class="dropdown-item" href="../../index.php">Trang chủ</a></li>
+                        <li><a class="dropdown-item" href="../giohang/giohang.php">Giỏ hàng (<?= isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0 ?>)</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sách bán chạy</a></li>
+                        <?php if(isset($_SESSION['user'])): ?>
+                            <li><a class="dropdown-item text-danger" href="../dangxuat/logout.php">Đăng xuất (<?php echo $_SESSION['user']; ?>)</a></li>
+                        <?php else: ?>
+                            <li><a class="dropdown-item" href="../dangnhap/login.php">Đăng nhập</a></li>
+                        <?php endif; ?>
                     </ul>
                 </li>
 
+                <!-- Trang chủ: Hiện ở Tablet và PC, ẩn ở Mobile (d-none d-md-block) -->
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link" aria-current="page" href="../../index.php">Trang chủ</a>
+                </li>
+
+                <!-- Danh mục: Hiện ở Tablet và PC, ẩn ở Mobile (d-none d-md-block) -->
+                <li class="nav-item dropdown d-none d-md-block">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Danh mục 
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../../index.php">Sách mới</a></li>
+                        <li><a class="dropdown-item" href="gioithieu.php">Giới thiệu</a></li>
+                    </ul>
+                </li>
+
+                <!-- Thanh tìm kiếm: LUÔN HIỆN -->
                 <li class="nav-item flex-grow-1 mx-2">
                     <form class="d-flex align-items-center gap-2 search-form" role="search" action="../../index.php" method="get">
-                        <input class="form-control" type="search" name="q" placeholder="Tìm kiếm...">
-                        <input type="submit" value="Tìm kiếm" style="padding:6px; background-color:white; border-radius: 5px; border:none;">
+                        <input class="form-control" type="search" name="search" placeholder="Tìm kiếm...">
+                        <input type="submit" value="Tìm kiếm" name="tim" style="padding:6px; background-color:white; border-radius: 5px; border: none;">
                     </form>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" href="giohang.php">
+                <!-- Giỏ hàng: Hiện ở Tablet và PC, ẩn ở Mobile (d-none d-md-block) -->
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link active" href="../giohang/giohang.php">
                         Giỏ hàng (<?= isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0 ?>)
                     </a>
                 </li>
-                <li class="nav-item ms-2 d-none d-lg-block">
+
+                <!-- Đăng nhập/Đăng xuất: Hiện ở Tablet và PC, ẩn ở Mobile (d-none d-md-block) -->
+                <li class="nav-item ms-2 d-none d-md-block">
                     <?php if(isset($_SESSION['user'])): ?>
                         <div class="dropdown">
                             <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -81,7 +96,7 @@ session_start();
                         </div>
                     <?php else: ?>
                         <a class="btn btn-outline-light btn-dang-nhap" href="../dangnhap/login.php">
-                            <i class="bi bi-person" href="../dangnhap/login.php"></i> Đăng nhập
+                            <i class="bi bi-person"></i> Đăng nhập
                         </a>
                     <?php endif; ?>
                 </li>

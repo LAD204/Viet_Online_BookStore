@@ -23,55 +23,36 @@
     white-space: nowrap;
 }
 
-@media (max-width: 991.98px) {
-    .navbar {
-        padding: 12px 20px;
-    }
+@media (min-width: 768px) and (max-width: 991px) {
+.menu-chinh .nav-link {
+    font-size: 13px !important; /* Thu nhỏ cỡ chữ nav */
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+}
+.menu-chinh .btn-dang-nhap, 
+.menu-chinh .btn-outline-light {
+    font-size: 13px !important; /* Thu nhỏ nút đăng nhập */
+    padding: 4px 8px !important;
+}
+.search-form .form-control {
+    font-size: 13px !important; /* Thu nhỏ ô tìm kiếm */
+    height: 32px !important;
+}
+.search-form input[type="submit"] {
+    font-size: 13px !important;
+    padding: 4px 8px !important;
+}
 }
 
-@media (max-width: 767.98px) {
-    .navbar {
-        padding: 10px 15px;
-    }
-
-    .navbar-brand {
-        font-size: 1.2rem;
-    }
-
-    .navbar-brand img {
-        width: 32px;
-        margin-right: 8px;
-    }
+/* Màn hình điện thoại (dưới 768px) */
+@media (max-width: 767px) {
+.search-form {
+    width: 100%; /* Thanh tìm kiếm tràn viền cho dễ nhìn */
 }
-@media (max-width: 991.98px) {
-    .navbar {
-        padding: 12px 20px;
-    }
-
-    .navbar-collapse {
-        padding-top: 10px;
-    }
-
-    .nav-link {
-        margin: 0;
-        padding: 12px 0;
-        border-bottom: 1px solid #f0f0f0;
-    }
+.search-form .form-control {
+    width: auto;
+    flex-grow: 1;
 }
-
-@media (max-width: 575.98px) {
-    .navbar {
-        padding: 10px 15px;
-    }
-
-    .navbar-brand {
-        font-size: 1.2rem;
-    }
-
-    .navbar-brand img {
-        width: 32px;
-        margin-right: 8px;
-    }
 }
 
 #bannerTinTuc .carousel-inner img {

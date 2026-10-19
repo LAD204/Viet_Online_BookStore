@@ -18,20 +18,10 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../../index.php">
                     <img src="../../images/logo.jpg" alt="">
                     SÁCH VIỆT
                 </a>
-
-                <div class="collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="../../index.php">SÁCH MỚI</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">KHÓA HỌC</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">TIN TỨC</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">LIÊN HỆ</a></li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
