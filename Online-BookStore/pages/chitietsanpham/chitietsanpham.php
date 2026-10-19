@@ -59,7 +59,7 @@ if (isset($_SESSION['cart'])) {
 
 <!-- MENU CHÍNH -->
 <div class="content">
-    <nav class="navbar navbar-expand navbar-dark bg-primary menu-chinh">
+    <nav class="navbar navbar-expand navbar-dark bg-info menu-chinh">
         <div class="container-fluid">
             <ul class="navbar-nav align-items-center w-100">
                 <li class="nav-item"><a class="nav-link active" href="../../index.php">Trang chủ</a></li>

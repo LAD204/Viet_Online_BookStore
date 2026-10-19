@@ -26,7 +26,7 @@ session_start();
 
 <!-- MENU CHÍNH -->
 <div class="content">
-    <nav class="navbar navbar-expand navbar-dark bg-primary menu-chinh">
+    <nav class="navbar navbar-expand navbar-dark bg-info menu-chinh">
         <div class="container-fluid">
             <ul class="navbar-nav align-items-center w-100">
 

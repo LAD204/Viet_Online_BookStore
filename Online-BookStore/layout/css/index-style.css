@@ -7,6 +7,10 @@
     border-color: #1a568c;
 }
 
+.navbarcolor{
+    background-color: #6593d2;
+}
+
 .navbar .nav-link {
     white-space: nowrap;
 }
