@@ -57,6 +57,7 @@ $doanh_thu = $dash->sum_status('Đã hoàn thành');
       <div class="d-flex align-items-center gap-1 ms-auto me-3">
         <a href="dashboard.php" class="nav-link-custom text-decoration-none active">Thống kê đơn hàng</a>
         <a href="Order processing.php" class="nav-link-custom text-decoration-none">Xử lý đơn hàng</a>
+        <a href="quanlysanpham.php" class="nav-link-custom text-decoration-none">Quản lý trang chủ</a>
         <a href="sanpham.php" class="nav-link-custom text-decoration-none">Post sản phẩm</a>
         <a href="postbaiviet.php" class="nav-link-custom text-decoration-none">Post bài viết</a>
       </div>

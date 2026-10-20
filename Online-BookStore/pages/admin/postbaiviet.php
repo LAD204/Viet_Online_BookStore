@@ -141,6 +141,13 @@ if (isset($_POST['btnPost'])) {
 
             </a>
 
+            <a href="quanlysanpham.php"
+               class="nav-link-custom text-decoration-none">
+
+                Quản lý trang chủ
+
+            </a>
+
             <a href="sanpham.php"
                class="nav-link-custom text-decoration-none">
 
