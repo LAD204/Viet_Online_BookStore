@@ -1,0 +1,9 @@
+RewriteEngine On
+
+ErrorDocument 404 /php_Project/Viet_Online_BookStore/Viet_Online_BookStore/Online-BookStore/pages/error/404.html
+
+<Files "clsconnect.php">
+    Require all denied
+</Files>
+
+RewriteRule ^session\.html$ session.php [L]
