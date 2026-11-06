@@ -55,12 +55,12 @@ if (isset($_SESSION['cart'])) {
             <ul class="navbar-nav align-items-center w-100">
                 <li class="nav-item"><a class="nav-link active" href="../../index.php">Trang chủ</a></li>
                 <li class="nav-item dropdown d-none d-md-block">
-                    <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Danh mục sách</a>
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Danh mục 
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Lập trình & IT</a></li>
-                        <li><a class="dropdown-item" href="#">Kinh tế</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sách bán chạy</a></li>
+                        <li><a class="dropdown-item" href="../../index.php">Sách mới</a></li>
+                        <li><a class="dropdown-item" href="../gioithieu/gioithieu.php">Giới thiệu</a></li>
                     </ul>
                 </li>
                 <li class="nav-item flex-grow-1 mx-2">
